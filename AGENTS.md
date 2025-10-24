@@ -51,6 +51,11 @@ Configuration contents (Ruff/Pyright/Nox) live in files; do not duplicate them h
 
 ## 5. Coding Standards
 - Use modern Python typing syntax (`list[str]`, `X | None`), precise types, and avoid `Any`.
+- Prefer Pydantic (v2) models and types over tuple-based data structures. Avoid using raw tuple
+  types for domain data; explicitly model structured data with `pydantic.BaseModel` for validation
+  and clarity.
+- Keep functions small and single-purpose. Adhere to SOLID principles; split large responsibilities
+  into focused functions to maximize readability and maintainability.
 - **Settings & environment variables:**
   - Provide a `settings.py` using `pydantic-settings.BaseSettings` to load from `.env`.
   - Do not read environment variables via `os` in application code. Always inject via `Settings`.
